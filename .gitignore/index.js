@@ -442,7 +442,7 @@ bot.on('message', msg => {
       var embedsys = new Discord.RichEmbed()
       .setTitle('KICK effectué avec succés !')
       .setColor('#FF4500')
-      .setDescription(`${memberd} s'est fait Kick par ${msg.author} ! A la prochaine à la Friterie !!`)
+      .setDescription(`${memberd} s'est fait Kick par ${msg.author} ! A la prochaine !`)
       .setImage("https://media.giphy.com/media/nwCz29GZlx0HfZZIwF/giphy.gif")
       .setAuthor("New Horizon")
       .setFooter("Aena")
