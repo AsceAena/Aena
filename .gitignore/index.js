@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 var prefix = ("~")
 
 bot.on('ready', function() {
-    bot.user.setGame("Commandes: ~help");
+    bot.user.setGame("Æna ★ : ~help");
     console.log("Connectedç");
 });
 
@@ -15,8 +15,8 @@ bot.on('guildMemberAdd', member => {
   let serverTag = member.guild.name
   const welcomechannel = member.guild.channels.find('name', 'général')
   var embed = new Discord.RichEmbed()
-  .setColor('#FF4500')
-  .setDescription(`:inbox_tray:  **Bienvenue à <@${member.user.id}> qui nous rejoint à ${serverTag} !!** \n \n Nous t'invitons à lire les informations complémetaires dans le channel <#473643368077852722>, ainsi qu'à __lire le réglement__, <#469326888528248832> ! \n \n Bonne visite à Aena !`)
+  .setColor('#581845')
+  .setDescription(`:inbox_tray:  **Bienvenue à <@${member.user.id}> qui nous rejoint à ${serverTag} !!** \n \n Nous t'invitons à lire les informations complémetaires dans le channel <#473643368077852722>, ainsi qu'à __lire le réglement__, <#469326888528248832> ! \n \n Bonne visite à **__Æna ★__** !`)
   .setImage(member.avatarURL)
   return welcomechannel.send({embed})
 });
@@ -25,7 +25,7 @@ bot.on("guildMemberRemove", member => {
   let serverTag = member.guild.name
   const GG = member.guild.channels.find('name', 'général')   
   var embed = new Discord.RichEmbed()
-  .setColor('#FF8C00')
+  .setColor('#7133FF')
   .setDescription(`:inbox_tray: <@${member.user.id}> **à quitté ${serverTag} , à la prochaine fois en espérant te revoir très bientôt !!** `)
   return GG.send({embed})
 });
@@ -58,10 +58,10 @@ if (message.content === "~test"){
      .addField("**~sondage :**", "Faites voter vos idées !")
      .addField("**~listfun :**", "Afficher la liste des commandes.. inutile")
      .addField("**~modocmd**", "Affiche les commandes pour les modérateurs !")
-     .addField(" \n ***Bonne visite à Aena !***", "**:D**")
-     .setColor("#FF8C00")
+     .addField(" \n ***Bonne visite à Æna ★ !***", "**:D**")
+     .setColor("#581845")
      .setAuthor("New Horizon")
-     .setFooter("Aena")
+     .setFooter("Æna ★")
         message.channel.sendEmbed(embed)
       };
 
@@ -72,8 +72,8 @@ if (message.content === "~test"){
       .addField("~mute <mention>", "Muter un membre du serveur")
       .addField("~kick <mention>", "Kick un membre du serveur")
       .addField("~ban <mention>", "Ban un membre du serveur")
-      .setFooter("Aena")
-      .setColor("#FF4500")
+      .setFooter("Æna ★")
+      .setColor("#7133FF")
            message.channel.sendEmbed(embed)
        };
 
@@ -87,8 +87,8 @@ if (message.content === "~test"){
     .addField("Tu as rejoins le", message.member.joinedAt)
     .addField("Utilisateur sur le discord", message.guild.memberCount)
     .addField("Nombre de catégories et de salons", message.guild.channels.size)
-    .setFooter("Aena")
-    .setColor("#FF4500")
+    .setFooter("Æna ★")
+    .setColor("#1A0647")
          message.channel.sendEmbed(embed)
      };
 
@@ -96,7 +96,7 @@ if (message.content === "~test"){
       let bicon1 = bot.user.displayAvatarURL;
       let botembed = new Discord.RichEmbed()
     .setTitle("Information du bot")
-    .setColor("#FF8C00")
+    .setColor("#1A0647")
     .setThumbnail(bicon1)
     .addField("Nom du bot", bot.user.username)
     .addField("Développeur", "<@387291278670430208>")
@@ -112,7 +112,7 @@ if (message.content === "~test"){
     .addField("**~rndm : **", "Fait apparaitre un gif random !!.")
     .addField("**Hugs :**", "Faites des câlins !")
     .addField("**Et d'autres à venir..**", "Proposez vos idées..")
-    .setColor("#8800fc")
+    .setColor("#1A0647")
        message.channel.sendEmbed(embed1)
    };
 
@@ -124,7 +124,7 @@ if (message.content === "~test"){
     .addField("**~tempochannel : **", "Créer votre channel vocal privé avec : ``~tempochannel <\"nom\"> <nombre>``")
     .addField("**~deletechannel : **", "Supprimer votre channel après l'avoir utilisé avec : ``~deletechannel <nom>``")
     .setFooter(`Toutes ces commandes sont à utiliser dans le channel invocation !`)
-    .setColor("#FF4500")
+    .setColor("#FF85E9")
        message.channel.sendEmbed(embedz)
    };
 
@@ -168,7 +168,7 @@ if(message.content === "~deletechannel"){
       const channelip = message.guild.channels.find('name', `invocation`)
        channelrss.delete(`${argss2}`, 'text',).then(message => {
          var embedss = new Discord.RichEmbed()
-         .setColor('#FF4500')
+         .setColor('#FF85E9')
          .setDescription(`Le channel #${argss} a bien été supprimé !`)
          channelip.sendEmbed(embedss)
       })}
@@ -188,10 +188,10 @@ if(message.content === "~clear"){
             message.channel.bulkDelete(limitao + 1);
             messagesDeleted = messages.array().length
             var embedw = new Discord.RichEmbed()
-         .setColor('#FF4500')
+         .setColor('#FF85E9')
          .setDescription(`Messages supprimés avec succés. \n Total  des messages supprimés : ` + limitao)
          message.channel.sendEmbed(embedw)
-         setTimeout(() => {message.channel.bulkDelete(1);}, 60 * 250)
+         setTimeout(() => {message.channel.bulkDelete(1);}, 60 * 150)
           })
       }}};
 
@@ -398,11 +398,11 @@ if(message.content === "~ping"){
       memberd.addRole(mute_role)
       setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 20000)
         var embedsys = new Discord.RichEmbed()
-        .setColor('#FF4500')
+        .setColor('#FFFF63')
         .setTitle(`Mute de 20 minutes effectué avec succés !`)
         .setDescription(`${memberd} s'est fait mute par ${msg.author} le temps de 20 minutes..`)
         .setImage("https://media.giphy.com/media/zcwCC4GqKznj2/giphy.gif")
-        .setFooter("Aena")
+        .setFooter("Æna ★")
         .setAuthor("New Horizon")
         msg.channel.sendEmbed(embedsys)
         }}}
@@ -420,10 +420,10 @@ bot.on('message', msg => {
      memberd.ban("GG")
       var embedsys = new Discord.RichEmbed()
       .setTitle("BAN effectué avec succés !")
-      .setColor('#FF4500')
+      .setColor('#CC1714')
       .setDescription(`${memberd} s'est fait ban par ${msg.author} ! Ce n'est qu'un au revoir !!`)
       .setImage("https://media.giphy.com/media/l44QvKoQuUD3xPZKg/giphy.gif")
-      .setFooter("Aena")
+      .setFooter("Æna ★")
       .setAuthor("New Horizon")
       msg.channel.sendEmbed(embedsys)
       }}}
@@ -441,11 +441,11 @@ bot.on('message', msg => {
      memberd.kick("GG")
       var embedsys = new Discord.RichEmbed()
       .setTitle('KICK effectué avec succés !')
-      .setColor('#FF4500')
+      .setColor('#FF9300')
       .setDescription(`${memberd} s'est fait Kick par ${msg.author} ! A la prochaine !`)
       .setImage("https://media.giphy.com/media/nwCz29GZlx0HfZZIwF/giphy.gif")
       .setAuthor("New Horizon")
-      .setFooter("Aena")
+      .setFooter("Æna ★")
       msg.channel.sendEmbed(embedsys)
       }}}
 });
@@ -473,7 +473,7 @@ bot.on('message', msg => {
     .addField(`__**Heure :**__`, `**${hour}h ${min}min ${sec}sec**`)
     .addField(`__**Date :**__`, `**${day}/${month}/${year}**`)
     .setAuthor("New Horizon")
-    .setFooter("Aena")
+    .setFooter("Æna ★")
     msg.channel.sendEmbed(embedsys)
 };
 
