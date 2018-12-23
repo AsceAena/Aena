@@ -8,7 +8,7 @@ bot.on('ready', function() {
     console.log("Connectedç");
 });
 
-bot.login("NTA3MjcxNTE1ODgwODE2NjQw.DvaPjw.hgCpJ9WbNZ7XCNo4js3t2L6AvA8");
+bot.login("Token1");
 
 bot.on('guildMemberAdd', member => {
 
