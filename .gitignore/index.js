@@ -58,7 +58,7 @@ if (message.content === "~test"){
      .addField("**~sondage :**", "Faites voter vos idées !")
      .addField("**~listfun :**", "Afficher la liste des commandes.. inutile")
      .addField("**~modocmd**", "Affiche les commandes pour les modérateurs !")
-     .addField(" \n ***Bonne visite à la Friterie ! Et bon appétit !***", "**:D**")
+     .addField(" \n ***Bonne visite à Aena !***", "**:D**")
      .setColor("#FF8C00")
      .setAuthor("New Horizon")
      .setFooter("Aena")
@@ -109,7 +109,7 @@ if (message.content === "~test"){
    if(message.content === "~listfun") { 
       var embed1 = new Discord.RichEmbed()
     .setTitle("Liste des commandes fun :")
-    .addField("**~rndm : **", "Fait apparaitre une image random !!.")
+    .addField("**~rndm : **", "Fait apparaitre un gif random !!.")
     .addField("**Hugs :**", "Faites des câlins !")
     .addField("**Et d'autres à venir..**", "Proposez vos idées..")
     .setColor("#8800fc")
@@ -153,7 +153,7 @@ if (message.content === "~test"){
 }}};
 
 if(message.content === "~deletechannel"){
-  message.reply("Merci de mentionner un channel avec la commande ``~deletechannelt`` !")
+  message.reply("Merci de mentionner un channel avec la commande ``~deletechannel <channel>`` !")
 }else{
   if(message.content.startsWith("~deletechannel")){
     if(!message.member.hasPermission("MANAGE_CHANNELS")){
@@ -208,7 +208,7 @@ if(message.content === "~ping"){
       };
         
    if(message.content === "~avatar"){
-        message.reply("Merci de mentionner un utilisateur valide avec la commande ``~avatar [Utilisateur]``")
+        message.reply("Merci de mentionner un utilisateur valide avec la commande ``~avatar <Utilisateur>``")
      }else{
         if(message.content.startsWith('~avatar')) {
             var user = message.mentions.users.first();
@@ -238,7 +238,7 @@ if(message.content === "~ping"){
 
         function randomc(min, max){
           min = Math.ceil(0);
-          max = Math.floor(6);
+          max = Math.floor(3);
           randnum = Math.floor(Math.random() * (max - min +1)+ min);
       }
 
@@ -247,7 +247,7 @@ if(message.content === "~ping"){
         if (randnum ==1){
           var embed = new Discord.RichEmbed()
           .setDescription("1")
-          .setImage("https://cdn.discordapp.com/attachments/513815805331374082/514163546272038922/frite-belge-friteuse-pro.jpg")
+          .setImage("https://media.giphy.com/media/l44QvKoQuUD3xPZKg/giphy.gif")
          .setColor("RANDOM")
       message.channel.sendEmbed(embed)
             console.log(randnum);
@@ -256,7 +256,7 @@ if(message.content === "~ping"){
         if (randnum ==2){
           var embed = new Discord.RichEmbed()
           .setDescription("2")
-          .setImage("https://cdn.discordapp.com/attachments/513815805331374082/514163545718521868/images_3.jpeg")
+          .setImage("https://media.giphy.com/media/nwCz29GZlx0HfZZIwF/giphy.gif")
          .setColor("RANDOM")
       message.channel.sendEmbed(embed)
             console.log(randnum);
@@ -265,39 +265,12 @@ if(message.content === "~ping"){
         if (randnum ==3){
           var embed = new Discord.RichEmbed()
           .setDescription("3")
-          .setImage("https://cdn.discordapp.com/attachments/513815805331374082/514163545718521866/ls.jpg")
+          .setImage("https://media.giphy.com/media/zcwCC4GqKznj2/giphy.gif")
          .setColor("RANDOM")
       message.channel.sendEmbed(embed)
             console.log(randnum);
         }
-
-        if (randnum ==4){
-          var embed = new Discord.RichEmbed()
-          .setDescription("4")
-          .setImage("https://cdn.discordapp.com/attachments/513815805331374082/514163544506499072/telechargement_4.jpeg")
-         .setColor("#RANDOM")
-      message.channel.sendEmbed(embed)
-            console.log(randnum);
-        }
-
-        if (randnum ==5){
-          var embed = new Discord.RichEmbed()
-          .setDescription("5")
-          .setImage("https://cdn.discordapp.com/attachments/513815805331374082/514163543906451479/348s.jpg")
-         .setColor("RANDOM")
-      message.channel.sendEmbed(embed)
-            console.log(randnum);
-        }
-
-        if (randnum ==6){
-            var embed = new Discord.RichEmbed()
-            .setDescription("6")
-            .setImage("https://cdn.discordapp.com/attachments/513815805331374082/514163543906451476/536d9bf8b164c6babb8d7b14a2e694c5-1302886126.jpg")
-           .setColor("RANDOM")
-        message.channel.sendEmbed(embed)
-              console.log(randnum);
-          }
- }
+ };
 
     var randhug = 0
 
@@ -428,7 +401,7 @@ if(message.content === "~ping"){
         .setColor('#FF4500')
         .setTitle(`Mute de 20 minutes effectué avec succés !`)
         .setDescription(`${memberd} s'est fait mute par ${msg.author} le temps de 20 minutes..`)
-        .setImage("https://static1.terrafemina.com/articles/4/34/35/44/@/506712-faire-rechauffer-ses-frites-622x0-1.gif")
+        .setImage("https://media.giphy.com/media/zcwCC4GqKznj2/giphy.gif")
         .setFooter("Aena")
         .setAuthor("New Horizon")
         msg.channel.sendEmbed(embedsys)
@@ -449,7 +422,7 @@ bot.on('message', msg => {
       .setTitle("BAN effectué avec succés !")
       .setColor('#FF4500')
       .setDescription(`${memberd} s'est fait ban par ${msg.author} ! Ce n'est qu'un au revoir !!`)
-      .setImage("http://www.gif-maniac.com/gifs/9/8887.gif")
+      .setImage("https://media.giphy.com/media/l44QvKoQuUD3xPZKg/giphy.gif")
       .setFooter("Aena")
       .setAuthor("New Horizon")
       msg.channel.sendEmbed(embedsys)
@@ -470,7 +443,7 @@ bot.on('message', msg => {
       .setTitle('KICK effectué avec succés !')
       .setColor('#FF4500')
       .setDescription(`${memberd} s'est fait Kick par ${msg.author} ! A la prochaine à la Friterie !!`)
-      .setImage("https://data.photofunky.net/output/image/0/c/1/0/0c10f3/photofunky.gif")
+      .setImage("https://media.giphy.com/media/nwCz29GZlx0HfZZIwF/giphy.gif")
       .setAuthor("New Horizon")
       .setFooter("Aena")
       msg.channel.sendEmbed(embedsys)
