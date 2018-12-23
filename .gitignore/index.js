@@ -393,7 +393,7 @@ if(message.content === "~ping"){
       if(!msg.member.hasPermission("KICK_MEMBERS")){
         msg.reply("Vous n'avez pas la permission de mute !")
       }else{
-        let mute_role = msg.guild.roles.find("name", "Mute");
+        let mute_role = msg.guild.roles.find("name", "Muted");
       let memberd = msg.mentions.members.first();
       memberd.addRole(mute_role)
       setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 20000)
