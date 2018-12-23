@@ -8,7 +8,7 @@ bot.on('ready', function() {
     console.log("Connectedç");
 });
 
-bot.login("Token1");
+bot.login("process.env.Token1");
 
 bot.on('guildMemberAdd', member => {
 
