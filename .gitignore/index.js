@@ -8,25 +8,25 @@ bot.on('ready', function() {
     console.log("Connectedç");
 });
 
-bot.login(process.env.Token1);
+bot.login("NTA3MjcxNTE1ODgwODE2NjQw.DvaPjw.hgCpJ9WbNZ7XCNo4js3t2L6AvA8");
 
 bot.on('guildMemberAdd', member => {
 
   let serverTag = member.guild.name
-  const welcomechannel = member.guild.channels.find('name', 'friterie-1-🍟')
+  const welcomechannel = member.guild.channels.find('name', 'général')
   var embed = new Discord.RichEmbed()
   .setColor('#FF4500')
-  .setDescription(`:inbox_tray:  **Bienvenue à <@${member.user.id}> qui nous rejoint à ${serverTag} !!** \n \n Nous t'invitons à lire les informations complémetaires dans le channel <#513811643172388910>, ainsi qu'à __lire le réglement__, <#513815192698617883> ! \n \n Bonne visite à La Friterie et bon appétit !! 🍟`)
+  .setDescription(`:inbox_tray:  **Bienvenue à <@${member.user.id}> qui nous rejoint à ${serverTag} !!** \n \n Nous t'invitons à lire les informations complémetaires dans le channel <#473643368077852722>, ainsi qu'à __lire le réglement__, <#469326888528248832> ! \n \n Bonne visite à Aena !`)
   .setImage(member.avatarURL)
   return welcomechannel.send({embed})
 });
 
 bot.on("guildMemberRemove", member => {
   let serverTag = member.guild.name
-  const GG = member.guild.channels.find('name', 'friterie-1-🍟')   
+  const GG = member.guild.channels.find('name', 'général')   
   var embed = new Discord.RichEmbed()
   .setColor('#FF8C00')
-  .setDescription(`:inbox_tray: <@${member.user.id}> **à quitté ${serverTag} , à la prochaine fois en espérant te revoir très bientôt !!** 🍟`)
+  .setDescription(`:inbox_tray: <@${member.user.id}> **à quitté ${serverTag} , à la prochaine fois en espérant te revoir très bientôt !!** `)
   return GG.send({embed})
 });
 
@@ -46,14 +46,12 @@ if (message.content === "~test"){
   if(message.content === "~help") { 
     var embed = new Discord.RichEmbed()
      .setTitle("Liste des commandes :")
-     .addField("**~LaCarte**", "Renseignez vous sur nos produits à consommer !")
      .addField(" \n **~test : **", "Tester le bot.")
      .addField("**~embed : **", "Créer des Embed.")
      .addField("**~avatar :**", "Afficher l'avatar de qui vous souhaitez.")
      .addField("**~infodiscord :**", "Infos à propos du serveur.")
      .addField("**~infobot : **", "Afficher quelques renseignement à propos du bot")
      .addField("**~createchannel : **", "Créer vos propres channels !")
-     .addField("**~cmdbump :**", "Affiche les commandes pour bumper le serveur !! ")
      .addField("**~say :**", "Faites dire ce que vous souhaitez au bot !.")
      .addField("**~ping :**", "Indication du temps de latence du serveur")
      .addField("**~date :**", "Il vous sera indiqué la date actuelle !")
@@ -62,8 +60,8 @@ if (message.content === "~test"){
      .addField("**~modocmd**", "Affiche les commandes pour les modérateurs !")
      .addField(" \n ***Bonne visite à la Friterie ! Et bon appétit !***", "**:D**")
      .setColor("#FF8C00")
-     .setAuthor("La Friteuse")
-     .setFooter("La Friterie")
+     .setAuthor("New Horizon")
+     .setFooter("Aena")
         message.channel.sendEmbed(embed)
       };
 
@@ -74,7 +72,7 @@ if (message.content === "~test"){
       .addField("~mute <mention>", "Muter un membre du serveur")
       .addField("~kick <mention>", "Kick un membre du serveur")
       .addField("~ban <mention>", "Ban un membre du serveur")
-      .setFooter("La Friterie")
+      .setFooter("Aena")
       .setColor("#FF4500")
            message.channel.sendEmbed(embed)
        };
@@ -89,7 +87,7 @@ if (message.content === "~test"){
     .addField("Tu as rejoins le", message.member.joinedAt)
     .addField("Utilisateur sur le discord", message.guild.memberCount)
     .addField("Nombre de catégories et de salons", message.guild.channels.size)
-    .setFooter("La Friterie")
+    .setFooter("Aena")
     .setColor("#FF4500")
          message.channel.sendEmbed(embed)
      };
@@ -111,7 +109,7 @@ if (message.content === "~test"){
    if(message.content === "~listfun") { 
       var embed1 = new Discord.RichEmbed()
     .setTitle("Liste des commandes fun :")
-    .addField("**~frites : **", "Fait apparaitre une image de frites !!.")
+    .addField("**~rndm : **", "Fait apparaitre une image random !!.")
     .addField("**Hugs :**", "Faites des câlins !")
     .addField("**Et d'autres à venir..**", "Proposez vos idées..")
     .setColor("#8800fc")
@@ -140,7 +138,7 @@ if (message.content === "~test"){
       const argsws = message.content.slice(16)
       const args2t = argsws.toLocaleLowerCase()
       message.guild.createChannel(`${args2t}`, 'text',).then(channel => {
-      channel.setParent('520741915570864131')
+      channel.setParent('526185406245503009')
       var embedvv = new Discord.RichEmbed()
     .setColor("RANDOM")  
     .setDescription(`Votre channel textuel <#${channel.id}> a bien été créé ! `)
@@ -226,15 +224,6 @@ if(message.content === "~ping"){
           message.channel.sendMessage(str)
         };
 
-  if(message.content === "~cmdbump"){
-        var embedcmd = new Discord.RichEmbed()
-      .setColor('#FF8C00')
-      .addField("**Bump Bot**", "``?bump``")
-      .addField("**Disboard**", "``!disboard bump``")
-      .setFooter("La Friterie")
-        message.channel.sendEmbed(embedcmd)
-      };
-
    if (message.content.split(" ")[0] == "~sondage"){//sondage
           message.delete()
           var embed = new Discord.RichEmbed()
@@ -253,7 +242,7 @@ if(message.content === "~ping"){
           randnum = Math.floor(Math.random() * (max - min +1)+ min);
       }
 
-      if (message.content === "~frites"){
+      if (message.content === "~rndm"){
         randomc()
         if (randnum ==1){
           var embed = new Discord.RichEmbed()
@@ -383,7 +372,7 @@ if(message.content === "~ping"){
   
       get(chan) {
           this.channel = chan;
-          this.channel.setParent("520741915570864131")
+          this.channel.setParent("526185406245503009")
               .catch(console.catch);
   
           this.channel.edit({
@@ -440,8 +429,8 @@ if(message.content === "~ping"){
         .setTitle(`Mute de 20 minutes effectué avec succés !`)
         .setDescription(`${memberd} s'est fait mute par ${msg.author} le temps de 20 minutes..`)
         .setImage("https://static1.terrafemina.com/articles/4/34/35/44/@/506712-faire-rechauffer-ses-frites-622x0-1.gif")
-        .setFooter("Cordialement, La Friterie")
-        .setAuthor("La Friteuse")
+        .setFooter("Aena")
+        .setAuthor("New Horizon")
         msg.channel.sendEmbed(embedsys)
         }}}
 });
@@ -461,8 +450,8 @@ bot.on('message', msg => {
       .setColor('#FF4500')
       .setDescription(`${memberd} s'est fait ban par ${msg.author} ! Ce n'est qu'un au revoir !!`)
       .setImage("http://www.gif-maniac.com/gifs/9/8887.gif")
-      .setFooter("Cordialement, La Friterie")
-      .setAuthor("La Friteuse")
+      .setFooter("Aena")
+      .setAuthor("New Horizon")
       msg.channel.sendEmbed(embedsys)
       }}}
 });
@@ -482,8 +471,8 @@ bot.on('message', msg => {
       .setColor('#FF4500')
       .setDescription(`${memberd} s'est fait Kick par ${msg.author} ! A la prochaine à la Friterie !!`)
       .setImage("https://data.photofunky.net/output/image/0/c/1/0/0c10f3/photofunky.gif")
-      .setAuthor("La Friteuse")
-      .setFooter("Cordialement, La Friterie")
+      .setAuthor("New Horizon")
+      .setFooter("Aena")
       msg.channel.sendEmbed(embedsys)
       }}}
 });
@@ -510,11 +499,10 @@ bot.on('message', msg => {
     .setColor('RANDOM')
     .addField(`__**Heure :**__`, `**${hour}h ${min}min ${sec}sec**`)
     .addField(`__**Date :**__`, `**${day}/${month}/${year}**`)
-    .setAuthor("La Friteuse")
-    .setFooter("La Friterie")
+    .setAuthor("New Horizon")
+    .setFooter("Aena")
     msg.channel.sendEmbed(embedsys)
 };
 
 
-    
 });
