@@ -476,18 +476,5 @@ bot.on('message', msg => {
     .setFooter("Æna ★")
     msg.channel.sendEmbed(embedsys)
 };
-    
-    bot.on('message', msg => {
-  if (msg.content = "zepeto"){
-    msg.channel.bulkDelete(1)
-  }
-});
-
-bot.on('message', msg => {
-  if (msg.content = "Zepeto"){
-    msg.channel.bulkDelete(1)
-  }
-});
-
-
+ 
 });
