@@ -10,15 +10,38 @@ bot.on('ready', function() {
 
 bot.login(process.env.Token1);
 
-bot.on('guildMemberAdd', member => {
+bot.on('guildMemberAdd', memberd => {
+  let porte_role = memberd.guild.roles.find("name", "porte");
+  memberd.addRole(porte_role)
+});
 
-  let serverTag = member.guild.name
-  const welcomechannel = member.guild.channels.find('name', 'général')
+bot.on('message', msg => {
+  if(msg.content === "~enterAena"){
+    let portee_role = msg.guild.roles.find("name", "porte");
+    var mbrd = msg.member
+    let new_role = mbrd.guild.roles.find("name", "Aena");
+    if(!msg.member.roles.has(new_role)){
+      mbrd.addRole(new_role);
+      mbrd.removeRole(portee_role);
+      msg.channel.bulkDelete(1);
+      var embeda = new Discord.RichEmbed()
+      .setTitle("Bienvenue !")
+      .setDescription(`<@${mbrd.user.id}> est entré(e) avec succés, Bienvenue à Æna ★`)
+      .setFooter("Æna ★")
+      .setColor("#7133FF")
+           msg.channel.sendEmbed(embeda);
+     
+  const GG = mbrd.guild.channels.find('name', 'général')   
   var embed = new Discord.RichEmbed()
-  .setColor('#581845')
-  .setDescription(`:inbox_tray:  **Bienvenue à <@${member.user.id}> qui nous rejoint à ${serverTag} !!** \n \n Nous t'invitons à lire les informations complémetaires dans le channel <#473643368077852722>, ainsi qu'à __lire le réglement__, <#469326888528248832> ! \n \n Bonne visite à **__Æna ★__** !`)
-  .setImage(member.avatarURL)
-  return welcomechannel.send({embed})
+  .setColor('#7133FF')
+  .setTitle("Bienvenue !")
+  .setDescription(`:inbox_tray: **Bienvenue à <@${mbrd.user.id}> qui nous rejoint sur Æna ★ ! \n Je t’invite fortement à lire les <#469326888528248832> ainsi qu'à lire les <#473643368077852722> !!** `)
+  .setFooter("Æna ★")
+  return GG.send({embed})
+   }else{
+    msg.reply("Vous n'avez pas à utiliser cette commande !")
+      }
+   }
 });
 
 bot.on("guildMemberRemove", member => {
@@ -476,5 +499,6 @@ bot.on('message', msg => {
     .setFooter("Æna ★")
     msg.channel.sendEmbed(embedsys)
 };
- 
+
+
 });
