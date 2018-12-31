@@ -20,7 +20,7 @@ bot.on('message', msg => {
     let portee_role = msg.guild.roles.find("name", "porte");
     var mbrd = msg.member
     let new_role = mbrd.guild.roles.find("name", "Aena");
-    if(!msg.member.roles.has(new_role)){
+    if(!msg.member.roles.get('529001289258893333')){
       mbrd.addRole(new_role);
       mbrd.removeRole(portee_role);
       msg.channel.bulkDelete(1);
