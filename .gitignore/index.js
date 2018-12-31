@@ -345,6 +345,27 @@ message.channel.sendEmbed(embed)
       console.log(randhug);
   }
 }
+
+if(message.content === "~clear"){
+  message.reply("Merci de préciser le nombre de message à supprimer avec la commande ``~clear <nombre>")
+}else{
+  if(message.content.startsWith("~clear")){
+    if(!message.member.hasPermission("KICK_MEMBERS")){
+      message.reply("Vous n'avez pas la permission")
+    }else{
+      var limita = message.content.slice(7)
+      var limitao = parseInt(limita)
+      message.channel.fetchMessages()
+          .then(messages => {
+            message.channel.bulkDelete(limitao + 1);
+            messagesDeleted = messages.array().length
+            var embedw = new Discord.RichEmbed()
+         .setColor('#FF4500')
+         .setDescription(`Messages supprimés avec succés. \n Total  des messages supprimés : ` + limitao)
+         message.channel.sendEmbed(embedw)
+         setTimeout(() => {message.channel.bulkDelete(1);}, 60 * 100)
+          })
+      }}};
 });
 
 bot.on('message', msg => {//MODOCMD
@@ -367,27 +388,6 @@ bot.on('message', msg => {//MODOCMD
       .setFooter("Æna ★")
       .setAuthor("New Horizon")
       msg.channel.sendEmbed(embedsys)
-}}};
-
-   if(msg.content === "~clear"){
-     msg.reply("Merci de préciser le nombre de message à supprimer avec la commande ``~clear <nombre>")
-  }else{
-      if(msg.content.startsWith("~clear")){
-        if(!msg.member.hasPermission("KICK_MEMBERS")){
-          msg.reply("Vous n'avez pas la permission")
-        }else{
-          var limita = msg.content.slice(7)
-          var limitao = parseInt(limita)
-          msg.channel.fetchMessages()
-          .then(msg => {
-           msg.channel.bulkDelete(limitao + 1);
-           messagesDeleted = msg.array().length
-           var embedw = new Discord.RichEmbed()
-            .setColor('#FF85E9')
-            .setDescription(`Messages supprimés avec succés. \n Total  des messages supprimés : ` + limitao)
-             msg.channel.sendEmbed(embedw)
-             setTimeout(() => {msg.channel.bulkDelete(1);}, 60 * 150)
-})
 }}};
 
   if (msg.content === "~ban"){
