@@ -376,7 +376,7 @@ bot.on('message', msg => {//MODOCMD
         if(!msg.member.hasPermission("KICK_MEMBERS")){
           msg.reply("Vous n'avez pas la permission")
         }else{
-          var limita = mqg.content.slice(7)
+          var limita = msg.content.slice(7)
           var limitao = parseInt(limita)
           msg.channel.fetchMessages()
           .then(msg => {
