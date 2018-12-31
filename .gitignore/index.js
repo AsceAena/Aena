@@ -25,7 +25,7 @@ bot.on('guildMemberAdd', memberd => {
   channelinn.send(embedad);
   var pa = memberd.guild.memberCount
       var ma = String(pa)
-    memberd.guild.channels.get("529300584784986115").setName(ma);
+    memberd.guild.channels.get("529300584784986115").setName(`Total Users: ${ma}`);
 });
 
 bot.on('message', msg => {
@@ -71,7 +71,7 @@ bot.on('message', msg => {
 bot.on("guildMemberRemove", member => {
   var pa = member.guild.memberCount
       var ma = String(pa)
-    member.guild.channels.get("529300584784986115").setName(ma);
+    member.guild.channels.get("529300584784986115").setName(`Total Users: ${ma}`);
   let serverTag = member.guild.name
   const GG = member.guild.channels.find('name', 'général')   
   var embed = new Discord.RichEmbed()
@@ -481,7 +481,7 @@ bot.on('message', msg => {
       msg.channel.sendEmbed(embedsys)
       var pa = msg.guild.memberCount
       var ma = String(pa)
-    msg.guild.channels.get("529300584784986115").setName(ma);
+    msg.guild.channels.get("529300584784986115").setName(`Total Users: ${ma}`);
       }}}
 });
 
@@ -505,7 +505,7 @@ bot.on('message', msg => {
       msg.channel.sendEmbed(embedsys)
       var pa = msg.guild.memberCount
       var ma = String(pa)
-    msg.guild.channels.get("529300584784986115").setName(ma);
+    msg.guild.channels.get("529300584784986115").setName(`Total Users: ${ma}`);
       }}}
 });
 
@@ -560,7 +560,7 @@ bot.on('message', msg => {
   var pa = msg.guild.memberCount
   var ma = String(pa)
     if (msg.content === "--test") {
-    msg.guild.channels.get("529300584784986115").setName(ma); 
+    msg.guild.channels.get("529300584784986115").setName(`Total Users: ${ma}`); 
   };
 });
 
