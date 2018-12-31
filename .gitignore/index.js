@@ -23,6 +23,9 @@ bot.on('guildMemberAdd', memberd => {
      .addField(`Pour entrer sur ce serveur il te suffit d'entrer la commande :`, "``~enterAena``")
     .setFooter("Æna ★")
   channelinn.send(embedad);
+  var pa = memberd.guild.memberCount
+    var ma = String(pa)
+   msg.guild.channels.get("id", "529300584784986115").setName(ma); 
 });
 
 bot.on('message', msg => {
@@ -67,7 +70,10 @@ bot.on('message', msg => {
 
 bot.on("guildMemberRemove", member => {
   let serverTag = member.guild.name
-  const GG = member.guild.channels.find('name', 'général')   
+  const GG = member.guild.channels.find('name', 'général') 
+  var pa = member.guild.memberCount
+    var ma = String(pa)
+   msg.guild.channels.get("id", "529300584784986115").setName(ma);   
   var embed = new Discord.RichEmbed()
   .setColor('#7133FF')
   .setDescription(`:inbox_tray: <@${member.user.id}> **à quitté ${serverTag} , à la prochaine fois en espérant te revoir très bientôt !!** `)
@@ -472,6 +478,9 @@ bot.on('message', msg => {
       .setFooter("Æna ★")
       .setAuthor("New Horizon")
       msg.channel.sendEmbed(embedsys)
+      var pa = msg.guild.memberCount
+    var ma = String(pa)
+   msg.guild.channels.get("id", "529300584784986115").setName(ma); 
       }}}
 });
 
@@ -493,6 +502,9 @@ bot.on('message', msg => {
       .setAuthor("New Horizon")
       .setFooter("Æna ★")
       msg.channel.sendEmbed(embedsys)
+      var pa = msg.guild.memberCount
+    var ma = String(pa)
+   msg.guild.channels.get("id", "529300584784986115").setName(ma); 
       }}}
 });
 
@@ -544,8 +556,10 @@ bot.on('message', msg => {
 });
 
 bot.on('message', msg => {
-  if (msg.content === "--test") {
-   msg.guild.channels.find("name", "test").setName("Testing"); 
+  if (msg.content === "--actual") {
+    var pa = msg.guild.memberCount
+    var ma = String(pa)
+   msg.guild.channels.get("id", "529300584784986115").setName(ma); 
   };
 });
 
