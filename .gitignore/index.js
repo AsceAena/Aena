@@ -560,5 +560,12 @@ if (msg.content == '~tempochannel'){
           }}}}
 });
 
+bot.on('message', msg => {
+  if(msg.content === "DM"){
+msg.author.send('Hello'); //Sends a Direct Message
+  }
+
+});
+
 
 
