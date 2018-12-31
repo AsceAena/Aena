@@ -559,7 +559,7 @@ bot.on('message', msg => {
   if (msg.content === "--actual") {
     var pa = msg.guild.memberCount
     var ma = String(pa)
-   msg.guild.channels.get("id", "529300584784986115").setName(ma); 
+   msg.guild.channels.get("529300584784986115").setName(ma); 
   };
 });
 
