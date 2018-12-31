@@ -545,7 +545,7 @@ bot.on('message', msg => {
 
 bot.on('message', msg => {
   if (msg.content === "--test") {
-   message.guild.channels.find("name", "test").setName("Testing"); 
+   msg.guild.channels.find("name", "test").setName("Testing"); 
   };
 });
 
