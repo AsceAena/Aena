@@ -522,8 +522,6 @@ bot.on('message', msg => {
     .setFooter("Æna ★")
     msg.channel.sendEmbed(embedsys)
 };
-
-
 });
 
 bot.on('message', msg => {
@@ -544,3 +542,11 @@ bot.on('message', msg => {
         msg.channel.send(userembed);
   };
 });
+
+bot.on('message', msg => {
+  if (msg.content === "--test") {
+   message.guild.channels.find("name", "test").setName("Testing"); 
+  };
+});
+
+
