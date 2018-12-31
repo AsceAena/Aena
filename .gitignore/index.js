@@ -98,7 +98,7 @@ bot.on('message', message => {//Démarrage
 
 bot.on('message', msg => {//INFO
 
-  if(message.content === "~help") { 
+  if(msg.content === "~help") { 
     var embed = new Discord.RichEmbed()
      .setTitle("Liste des commandes :")
      .addField(" \n **~test : **", "Tester le bot.")
@@ -118,10 +118,10 @@ bot.on('message', msg => {//INFO
      .setColor("#581845")
      .setAuthor("New Horizon")
      .setFooter("Æna ★")
-        message.channel.sendEmbed(embed)
+        msg.channel.sendEmbed(embed)
       };
 
-      if(message.content === "~modocmd") { 
+      if(msg.content === "~modocmd") { 
         var embed = new Discord.RichEmbed()
       .setTitle("Commande de modération")
       .addField("~clear <nombre>", "Effacer un nombre de message voulu")
@@ -130,25 +130,25 @@ bot.on('message', msg => {//INFO
       .addField("~ban <mention>", "Ban un membre du serveur")
       .setFooter("Æna ★")
       .setColor("#7133FF")
-           message.channel.sendEmbed(embed)
+           msg.channel.sendEmbed(embed)
        };
 
- if(message.content === "~infodiscord") { 
-      let bicon = message.author.displayAvatarURL;
+ if(msg.content === "~infodiscord") { 
+      let bicon = msg.author.displayAvatarURL;
       var embed = new Discord.RichEmbed()
     .setThumbnail(bicon)
     .setTitle("Information du Discord")
-    .addField("Nom du discord", message.guild.name)
-    .addField("Crée le", message.guild.createdAt)
-    .addField("Tu as rejoins le", message.member.joinedAt)
-    .addField("Utilisateur sur le discord", message.guild.memberCount)
-    .addField("Nombre de catégories et de salons", message.guild.channels.size)
+    .addField("Nom du discord", msg.guild.name)
+    .addField("Crée le", msg.guild.createdAt)
+    .addField("Tu as rejoins le", msg.member.joinedAt)
+    .addField("Utilisateur sur le discord", msg.guild.memberCount)
+    .addField("Nombre de catégories et de salons", msg.guild.channels.size)
     .setFooter("Æna ★")
     .setColor("#1A0647")
-         message.channel.sendEmbed(embed)
+         msg.channel.sendEmbed(embed)
      };
 
-  if(message.content === "~infobot"){
+  if(msg.content === "~infobot"){
       let bicon1 = bot.user.displayAvatarURL;
       let botembed = new Discord.RichEmbed()
     .setTitle("Information du bot")
@@ -159,17 +159,17 @@ bot.on('message', msg => {//INFO
     .addField("Nombre de commande :", "**25**")
     .addField("Créer le", bot.user.createdAt)
     .addField("Pour toute aide : ", "``~help``");
-       message.channel.send(botembed);
+       msg.channel.send(botembed);
     };
 
-if(message.content === "~listfun") { 
+if(msg.content === "~listfun") { 
       var embed1 = new Discord.RichEmbed()
     .setTitle("Liste des commandes fun :")
     .addField("**~rndm : **", "Fait apparaitre un gif random !!.")
     .addField("**Hugs :**", "Faites des câlins !")
     .addField("**Et d'autres à venir..**", "Proposez vos idées..")
     .setColor("#1A0647")
-       message.channel.sendEmbed(embed1)
+       msg.channel.sendEmbed(embed1)
    };
 
   if (msg.content.startsWith("~userinfo")) {
