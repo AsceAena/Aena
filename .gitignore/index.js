@@ -255,7 +255,7 @@ bot.on('message', message => { //OTHERS
        message.reply("Merci de mentionner un utilisateur valide avec la commande ``~avatar <Utilisateur>``")
     }else{
        if(message.content.startsWith('~avatar')) {
-           var user = message.mentions.users.first();
+        let user = msg.mentions.users.first() || msg.author;
            let embed = new Discord.RichEmbed()
          .setImage(user.avatarURL)
          .setColor('RANDOM')
@@ -363,7 +363,7 @@ if(message.content === "~clear"){
          .setColor('#FF4500')
          .setDescription(`Messages supprimés avec succés. \n Total  des messages supprimés : ` + limitao)
          message.channel.sendEmbed(embedw)
-         setTimeout(() => {message.channel.bulkDelete(1);}, 60 * 100)
+         setTimeout(() => {message.channel.bulkDelete(1);}, 60 * 50)
           })
       }}};
 });
