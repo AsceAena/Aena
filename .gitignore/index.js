@@ -24,12 +24,41 @@ bot.on('message', msg => {
       mbrd.addRole(new_role);
       mbrd.removeRole(portee_role);
       msg.channel.bulkDelete(1);
+      const channelin = mbrd.guild.channels.find('name', "nouveaux-arrivants")
       var embeda = new Discord.RichEmbed()
       .setTitle("Bienvenue !")
       .setDescription(`<@${mbrd.user.id}> est entré(e) avec succés, Bienvenue à Æna ★`)
       .setFooter("Æna ★")
       .setColor("#7133FF")
-           msg.channel.sendEmbed(embeda);
+        channelin.sendEmbed(embeda);
+
+        var infouser = msg.member
+        const status = {
+          online: "Online",
+          idle: "Idle",
+          dnd: "Do Not Disturb",
+          offline: "Offline/Invisible"
+        };
+
+        let bot;
+        if (infouser.user.bot === true) {
+          bot = "Yes";
+        } else {
+          bot = "No";
+        }
+        var embedada = new Discord.RichEmbed()
+        .setColor("RANDOM")
+    .setThumbnail(`${infouser.user.displayAvatarURL()}`)
+    .setAuthor(`${infouser.user.tag} (${infouser.id})`, `${infouser.user.avatarURL()}`)
+    .addField("Surnom:", `${infouser.nickname !== null ? `Surnom: ${infouser.nickname}` : "Pas de pseudo"}`, true)
+    .addField("Bot ?", `${bot}`, true)
+    .addField("Serveur", `${bot}`, true)
+    .addField("Status", `${status[infouser.user.presence.status]}`, true)
+    .addField("Joue à ", `${infouser.user.presence.game ? `${infouser.user.presence.game.name}` : "Ne joue à rien."}`, true)
+    .addField("Roles", `${infouser.roles.filter(r => r.id !== msg.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "Pas Roles"}`, true)
+    .addField("A rejoins à", `${moment.utc(infouser.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true)
+    .addField("Compte crée le", `${moment.utc(infouser.user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true);
+    channelin.sendEmbed(embedada)
      
   const GG = mbrd.guild.channels.find('name', 'général')   
   var embed = new Discord.RichEmbed()
@@ -43,6 +72,7 @@ bot.on('message', msg => {
       }
    }
 });
+
 
 bot.on("guildMemberRemove", member => {
   let serverTag = member.guild.name
