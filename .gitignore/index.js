@@ -18,9 +18,10 @@ bot.on('guildMemberAdd', memberd => {
       var embedad = new Discord.RichEmbed()
       .setColor("RANDOM")
      .setThumbnail(mbrduser.displayAvatarURL)
-     .setTitle(`Bienvenue !`)
-     .addField(`Bienvenue <@${memberd.user.id}> ! Pour entrer sur ce serveur il te suffit d'entrer la commande ***~enterAena*** `)
-     .setFooter("Æna ★")
+     .setTitle(`Bienvenue à Aena !`)
+     .setDescription(`Bienvenue <@${memberd.user.id}> ! Nous t'invitons à aller lire le <#528935433984409611> !`)
+     .addField(`Pour entrer sur ce serveur il te suffit d'entrer la commande :`, "``~enterAena``")
+    .setFooter("Æna ★")
   channelinn.send(embedad);
 });
 
