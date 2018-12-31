@@ -8,7 +8,7 @@ bot.on('ready', function() {
     console.log("Connectedç");
 });
 
-bot.login(process.env.Token1);
+bot.login("NTAxMDQyMzczMDc0MjIzMTIx.DwuJnA.cOv2_msHqjmYKBs7RiWquAdLFrE");
 
 bot.on('guildMemberAdd', memberd => {
   let porte_role = memberd.guild.roles.find("name", "porte");
@@ -25,42 +25,23 @@ bot.on('message', msg => {
       mbrd.removeRole(portee_role);
       msg.channel.bulkDelete(1);
       const channelin = mbrd.guild.channels.find('name', "nouveaux-arrivants")
+      let member = msg.author
       var embeda = new Discord.RichEmbed()
-      .setTitle("Bienvenue !")
-      .setDescription(`<@${mbrd.user.id}> est entré(e) avec succés, Bienvenue à Æna ★`)
-      .setFooter("Æna ★")
-      .setColor("#7133FF")
-        channelin.sendEmbed(embeda);
+           .setColor(msg.guild.member(member).highestRole.color)
+          .setThumbnail(member.displayAvatarURL)
+          .setTitle(`Informations de ${member.username}.`)
+          .addField(`Nom:`, member.username, true)
+          .addField(`Id:`, member.id, true)
+          .addField(`Bot:`, member.bot ? "Oui" : "Non", true)
+          .addField("Game:", msg.guild.member(member).presence.game ? msg.guild.member(member).presence.game.name : "Not Playing", true) // the ? and : are like an if statement if (msg.guild.member(member).presence.game ) { msg.guild.member(member).presence.game.name } else "Not Playing"
+          .addField("Surnom:", msg.guild.member(member).nickname ? msg.guild.member(member).nickname : "Aucun", true )
+          .addField("Dernier message:", member.lastMessage, true)
+          .addField(`Roles:`, msg.guild.member(member).roles.map(s => s).join(" | "), true)
+          .setDescription(`<@${mbrd.user.id}> est entré(e) avec succés, Bienvenue à Æna ★`)
+          .setFooter("Æna ★")
+       channelin.send(embeda);
 
-        var infouser = msg.member
-        const status = {
-          online: "Online",
-          idle: "Idle",
-          dnd: "Do Not Disturb",
-          offline: "Offline/Invisible"
-        };
-
-        let bot;
-        if (infouser.user.bot === true) {
-          bot = "Yes";
-        } else {
-          bot = "No";
-        }
-        var embedada = new Discord.RichEmbed()
-        .setColor("RANDOM")
-    .setThumbnail(`${infouser.user.displayAvatarURL()}`)
-    .setAuthor(`${infouser.user.tag} (${infouser.id})`, `${infouser.user.avatarURL()}`)
-    .addField("Surnom:", `${infouser.nickname !== null ? `Surnom: ${infouser.nickname}` : "Pas de pseudo"}`, true)
-    .addField("Bot ?", `${bot}`, true)
-    .addField("Serveur", `${bot}`, true)
-    .addField("Status", `${status[infouser.user.presence.status]}`, true)
-    .addField("Joue à ", `${infouser.user.presence.game ? `${infouser.user.presence.game.name}` : "Ne joue à rien."}`, true)
-    .addField("Roles", `${infouser.roles.filter(r => r.id !== msg.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "Pas Roles"}`, true)
-    .addField("A rejoins à", `${moment.utc(infouser.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true)
-    .addField("Compte crée le", `${moment.utc(infouser.user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true);
-    channelin.sendEmbed(embedada)
-     
-  const GG = mbrd.guild.channels.find('name', 'général')   
+     const GG = mbrd.guild.channels.find('name', 'général')   
   var embed = new Discord.RichEmbed()
   .setColor('#7133FF')
   .setTitle("Bienvenue !")
@@ -103,6 +84,7 @@ if (message.content === "~test"){
      .addField("**~embed : **", "Créer des Embed.")
      .addField("**~avatar :**", "Afficher l'avatar de qui vous souhaitez.")
      .addField("**~infodiscord :**", "Infos à propos du serveur.")
+     .addField("**~userinfo :**", "Affiche pleins d'information au sujet du membre souhaité !")
      .addField("**~infobot : **", "Afficher quelques renseignement à propos du bot")
      .addField("**~createchannel : **", "Créer vos propres channels !")
      .addField("**~say :**", "Faites dire ce que vous souhaitez au bot !.")
@@ -158,6 +140,7 @@ if (message.content === "~test"){
     .addField("Pour toute aide : ", "``~help``");
        message.channel.send(botembed);
     };
+
 
    if(message.content === "~listfun") { 
       var embed1 = new Discord.RichEmbed()
@@ -531,4 +514,23 @@ bot.on('message', msg => {
 };
 
 
+});
+
+bot.on('message', msg => {
+  if (msg.content.startsWith("~userinfo")) {
+    let member = msg.mentions.users.first() || msg.author;
+    let userembed = new Discord.RichEmbed()
+        .setColor(msg.guild.member(member).highestRole.color)
+        .setThumbnail(member.displayAvatarURL)
+        .setTitle(`Informations de ${member.username}.`)
+        .addField(`Nom:`, member.username, true)
+        .addField(`Id:`, member.id, true)
+        .addField(`Bot:`, member.bot ? "Oui" : "Non", true)
+        .addField("Game:", msg.guild.member(member).presence.game ? msg.guild.member(member).presence.game.name : "Not Playing", true) // the ? and : are like an if statement if (msg.guild.member(member).presence.game ) { msg.guild.member(member).presence.game.name } else "Not Playing"
+        .addField("Surnom:", msg.guild.member(member).nickname ? msg.guild.member(member).nickname : "Aucun", true )
+        .addField("Dernier message:", member.lastMessage, true)
+        .addField(`Roles:`, msg.guild.member(member).roles.map(s => s).join(" | "), true)
+  
+        msg.channel.send(userembed);
+  };
 });
