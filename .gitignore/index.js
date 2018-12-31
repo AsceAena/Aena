@@ -8,11 +8,20 @@ bot.on('ready', function() {
     console.log("Connectedç");
 });
 
-bot.login("NTAxMDQyMzczMDc0MjIzMTIx.DwuJnA.cOv2_msHqjmYKBs7RiWquAdLFrE");
+bot.login(process.env.Token1);
 
 bot.on('guildMemberAdd', memberd => {
   let porte_role = memberd.guild.roles.find("name", "porte");
   memberd.addRole(porte_role)
+  const channelinn = memberd.guild.channels.find('name', "salle-des-commandes")
+  const mbrduser = memberd.user
+      var embedad = new Discord.RichEmbed()
+      .setColor("RANDOM")
+     .setThumbnail(mbrduser.displayAvatarURL)
+     .setTitle(`Bienvenue !`)
+     .addField(`Bienvenue <@${memberd.user.id}> ! Pour entrer sur ce serveur il te suffit d'entrer la commande ***~enterAena*** `)
+     .setFooter("Æna ★")
+  channelinn.send(embedad);
 });
 
 bot.on('message', msg => {
@@ -24,7 +33,7 @@ bot.on('message', msg => {
       mbrd.addRole(new_role);
       mbrd.removeRole(portee_role);
       msg.channel.bulkDelete(1);
-      const channelin = mbrd.guild.channels.find('name', "nouveaux-arrivants")
+    const channelin = mbrd.guild.channels.find('name', "nouveaux-arrivants")
       let member = msg.author
       var embeda = new Discord.RichEmbed()
            .setColor(msg.guild.member(member).highestRole.color)
