@@ -98,41 +98,66 @@ bot.on('message', message => {//Démarrage
 
 bot.on('message', msg => {//INFO
 
-  if(msg.content === "~help") { 
+    function help1() {
     var embed = new Discord.RichEmbed()
      .setTitle("Liste des commandes :")
      .addField(" \n **~test : **", "Tester le bot.")
      .addField("**~embed : **", "Créer des Embed.")
      .addField("**~avatar :**", "Afficher l'avatar de qui vous souhaitez.")
-     .addField("**~infodiscord :**", "Infos à propos du serveur.")
      .addField("**~userinfo :**", "Affiche pleins d'information au sujet du membre souhaité !")
-     .addField("**~infobot : **", "Afficher quelques renseignement à propos du bot")
-     .addField("**~createchannel : **", "Créer vos propres channels !")
      .addField("**~say :**", "Faites dire ce que vous souhaitez au bot !.")
      .addField("**~ping :**", "Indication du temps de latence du serveur")
      .addField("**~date :**", "Il vous sera indiqué la date actuelle !")
-     .addField("**~sondage :**", "Faites voter vos idées !")
      .addField("**~listfun :**", "Afficher la liste des commandes.. inutile")
-     .addField("**~modocmd**", "Affiche les commandes pour les modérateurs !")
      .addField(" \n ***Bonne visite à Æna ★ !***", "**:D**")
      .setColor("#581845")
      .setAuthor("New Horizon")
-     .setFooter("Æna ★")
+     .setFooter("Page 1/2")
         msg.channel.sendEmbed(embed).then(msg => {
-          msg.react("👍");
-          msg.react("👎")
-          bot.on('messageReactionAdd', (reaction, user) => {
-  
-              if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
-              msg.channel.bulkDelete(msg.author.lastMessage);
-              msg.reply("cc")
- }
+          msg.react("👍");})
+        };
+
+    function helpp() {
+      msg.channel.bulkDelete(1);
+              var embed1 = new Discord.RichEmbed()
+              .setTitle("Liste des commandes :")
+              .addField("**~createchannel : **", "Créer vos propres channels !")
+              .addField("**~sondage :**", "Faites voter vos idées !")
+              .addField("**~link : **", "Un lien permanent du serveur vous sera envoyé !")
+              .addField("**~modocmd**", "Affiche les commandes pour les modérateurs !")
+              .addField("**~infobot : **", "Afficher quelques renseignement à propos du bot")
+              .addField("**~infodiscord :**", "Infos à propos du serveur.")
+              .addField(" \n ***Bonne visite à Æna ★ !***", "**:D**")
+              .setColor("#581845")
+              .setAuthor("New Horizon")
+              .setFooter("Page 2/2")
+              msg.channel.sendEmbed(embed1).then(msg => {
+                msg.react("👎")
+              });
+            }
+
+              if(msg.content === "~help"){
+                help1()
+                bot.on('messageReactionAdd', (reaction, user) => {
+                  if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
+                    helpp()
+                  };
+                  if (reaction.emoji.name === "👎" && user.id !== bot.user.id) {
+                    msg.channel.bulkDelete(1);
+                    help1()
+                  };
+
+
+              })}
+              
+              
+ 
             
-          })
-            })
+          
+            
      
      
-      };
+      
 
       if(msg.content === "~modocmd") { 
         var embed = new Discord.RichEmbed()
