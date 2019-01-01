@@ -114,7 +114,12 @@ bot.on('message', msg => {//INFO
      .setAuthor("New Horizon")
      .setFooter("Page 1/2")
         msg.channel.sendEmbed(embed).then(msg => {
-          msg.react("👍");})
+          msg.react("👍").then('message', msg => {
+            if (!msg.content === "~help"){
+              reaction.remove()
+            }
+          })
+          ;})
         };
 
     function helpp() {
@@ -132,7 +137,11 @@ bot.on('message', msg => {//INFO
               .setAuthor("New Horizon")
               .setFooter("Page 2/2")
               msg.channel.sendEmbed(embed1).then(msg => {
-                msg.react("👎")
+                msg.react("👎").then('message', msg => {
+                  if (!msg.content === "~help"){
+                    reaction.remove()
+                  }
+                })
               });
             }
 
@@ -140,19 +149,12 @@ bot.on('message', msg => {//INFO
                 help1()
                 bot.on('messageReactionAdd', (reaction, user) => {
                   if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
-                    helpp().then('message', msg => {
-                      if (!msg.author.bot){
-                        reaction.remove()
-                      }
-                  })};
+                    helpp()};
                   
                   if (reaction.emoji.name === "👎" && user.id !== bot.user.id) {
                     msg.channel.bulkDelete(1);
-                    help1().then('message', msg => {
-                      if (!msg.author.bot){
-                        reaction.remove()
-                      }
-                    })};
+                    help1()
+                  };
 
                     
                   })};
