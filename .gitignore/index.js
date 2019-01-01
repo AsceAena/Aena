@@ -137,23 +137,25 @@ bot.on('message', msg => {//INFO
             }
 
               if(msg.content === "~help"){
-                var chanl = msg.guild.channels
                 help1()
                 bot.on('messageReactionAdd', (reaction, user) => {
                   if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
-                    helpp()
-                  };
+                    helpp().then('message', msg => {
+                      if (!msg.author.bot){
+                        reaction.remove()
+                      }
+                  })};
+                  
                   if (reaction.emoji.name === "👎" && user.id !== bot.user.id) {
                     msg.channel.bulkDelete(1);
-                    help1()
-                  }else if (!msg.author.id == "501042373074223121") return;
+                    help1().then('message', msg => {
+                      if (!msg.author.bot){
+                        reaction.remove()
+                      }
+                    })};
 
                     
-                  }
-                
-
-
-              )}
+                  })};
               
               
  
