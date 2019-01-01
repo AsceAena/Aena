@@ -114,11 +114,7 @@ bot.on('message', msg => {//INFO
      .setAuthor("New Horizon")
      .setFooter("Page 1/2")
         msg.channel.sendEmbed(embed).then(msg => {
-          msg.react("👍").then('message', msg => {
-            if (!msg.content === "~help"){
-              bot.off
-            }
-          })
+          msg.react("👍")
           ;})
         };
 
@@ -137,15 +133,12 @@ bot.on('message', msg => {//INFO
               .setAuthor("New Horizon")
               .setFooter("Page 2/2")
               msg.channel.sendEmbed(embed1).then(msg => {
-                msg.react("👎").then('message', msg => {
-                  if (!msg.content === "~help"){
-                    bot.off
-                  }
-                })
+                msg.react("👎")
               });
             }
 
               if(msg.content === "~help"){
+                setTimeout(() => {bot.off}, 60 * 100)
                 help1()
                 bot.on('messageReactionAdd', (reaction, user) => {
                   if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
