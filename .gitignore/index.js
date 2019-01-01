@@ -121,7 +121,7 @@ bot.on('message', msg => {//INFO
         msg.channel.sendEmbed(embed).then(msg => {
           msg.react("👍");
           msg.react("👎").then(msgReactionAdd => {
-            if(msgReactionAdd.emoji.name === "👍"){
+            if(msgReactionAdd.emoji === "👍"){
               msg.channel.bulkDelete(1);
               msg.reply("cc")
  }
