@@ -118,7 +118,18 @@ bot.on('message', msg => {//INFO
      .setColor("#581845")
      .setAuthor("New Horizon")
      .setFooter("Æna ★")
-        msg.channel.sendEmbed(embed)
+        msg.channel.sendEmbed(embed).then(msg => {
+          msg.react("👍");
+          msg.react("👎").then('messageReactionAdd', (reaction) => {
+            if(reaction.emoji.name === "👍"){
+              msg.channel.bulkDelete(1);
+              msg.reply("cc")
+ }
+            
+          })
+            })
+     
+     
       };
 
       if(msg.content === "~modocmd") { 
@@ -140,7 +151,7 @@ bot.on('message', msg => {//INFO
     .setTitle("Information du Discord")
     .addField("Nom du discord", msg.guild.name)
     .addField("Crée le", msg.guild.createdAt)
-    .addField("Tu as rejoins le", msg.member.joinedAt.getTimezoneOffset)
+    .addField("Tu as rejoins le", msg.member.joinedAt)
     .addField("Utilisateur sur le discord", msg.guild.memberCount)
     .addField("Nombre de catégories et de salons", msg.guild.channels.size)
     .setFooter("Æna ★")
@@ -570,7 +581,11 @@ bot.on('message', msg => {
         .setImage('https://cdn.discordapp.com/attachments/474923379590168596/516294112375209999/Multi_Color_Bar.gif')
         .setColor("RANDOM")
         .setFooter("Æna ★")
-           msg.author.sendEmbed(embed1)
+           msg.author.sendEmbed(embed1).then(msg =>{
+             msg.reply("Mp envoyé !!")
+           })
+
+    
   }
 
 });
