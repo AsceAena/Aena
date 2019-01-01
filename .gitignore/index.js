@@ -120,8 +120,10 @@ bot.on('message', msg => {//INFO
      .setFooter("Æna ★")
         msg.channel.sendEmbed(embed).then(msg => {
           msg.react("👍");
-          msg.react("👎").then(msgReactionAdd => {
-            if(msgReactionAdd.emoji === "👍"){
+          msg.react("👎")
+          bot.on('messageReactionAdd', (reaction, user) => {
+  
+              if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
               msg.channel.bulkDelete(1);
               msg.reply("cc")
  }
