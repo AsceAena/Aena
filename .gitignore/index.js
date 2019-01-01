@@ -618,6 +618,3 @@ bot.on('message', msg => {
   }
 
 });
-
-
-
