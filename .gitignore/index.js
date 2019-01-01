@@ -116,7 +116,7 @@ bot.on('message', msg => {//INFO
         msg.channel.sendEmbed(embed).then(msg => {
           msg.react("👍").then('message', msg => {
             if (!msg.content === "~help"){
-              reaction.remove()
+              bot.off
             }
           })
           ;})
@@ -139,7 +139,7 @@ bot.on('message', msg => {//INFO
               msg.channel.sendEmbed(embed1).then(msg => {
                 msg.react("👎").then('message', msg => {
                   if (!msg.content === "~help"){
-                    reaction.remove()
+                    bot.off
                   }
                 })
               });
