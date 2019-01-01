@@ -146,6 +146,9 @@ bot.on('message', msg => {//INFO
                     msg.channel.bulkDelete(1);
                     help1()
                   };
+                bot.on('message', msg => {
+                  return  console.log("help");
+                })
 
 
               })}
