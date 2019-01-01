@@ -139,22 +139,17 @@ bot.on('message', msg => {//INFO
 
               if(msg.content === "~help"){
                 help1()
-                 bot.on('message', msg => {
-                      if (!msg.author.bot){
-                  break
-                      }else{
-                        bot.on('messageReactionAdd', (reaction, user) => {
-                          if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
-                            helpp()
-                           };
+            bot.on('messageReactionAdd', (reaction, user) => {
+                 if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
+                     helpp()
+                    };
                           
-                          if (reaction.emoji.name === "👎" && user.id !== bot.user.id) {
-                            msg.channel.bulkDelete(1);
-                            help1()
+                if (reaction.emoji.name === "👎" && user.id !== bot.user.id) {
+                  msg.channel.bulkDelete(1);
+                    help1()
                            
-                              }
-                      })}})};
-              
+                    }
+});              
               
  
             
@@ -261,7 +256,7 @@ if(msg.content === "~listfun") {
     if (msg.content === "--test") {
     msg.guild.channels.get("529300584784986115").setName(`Total Users: ${ma}`); 
     };
-});
+}});
 
 bot.on('message', message => { //Slice message
 
