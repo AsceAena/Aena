@@ -118,7 +118,7 @@ bot.on('message', msg => {//INFO
         };
 
     function helpp() {
-      msg.channel.bulkDelete(embedz);
+      msg.channel.bulkDelete(1);
               var embed1 = new Discord.RichEmbed()
               .setTitle("Liste des commandes :")
               .addField("**~createchannel : **", "Créer vos propres channels !")
@@ -145,7 +145,7 @@ bot.on('message', msg => {//INFO
                     };
                           
                 if (reaction.emoji.name === "👎" && user.id !== bot.user.id) {
-                  msg.channel.bulkDelete(embed1);
+                  msg.channel.bulkDelete(1);
                     help1()
                            
                     }
