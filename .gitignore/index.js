@@ -140,7 +140,7 @@ bot.on('message', msg => {//INFO
     .setTitle("Information du Discord")
     .addField("Nom du discord", msg.guild.name)
     .addField("Crée le", msg.guild.createdAt)
-    .addField("Tu as rejoins le", msg.member.joinedAt)
+    .addField("Tu as rejoins le", msg.member.joinedAt.getTimezoneOffset)
     .addField("Utilisateur sur le discord", msg.guild.memberCount)
     .addField("Nombre de catégories et de salons", msg.guild.channels.size)
     .setFooter("Æna ★")
@@ -172,6 +172,7 @@ if(msg.content === "~listfun") {
        msg.channel.sendEmbed(embed1)
    };
 
+   
   if (msg.content.startsWith("~userinfo")) {
     let member = msg.mentions.users.first() || msg.author;
     let userembed = new Discord.RichEmbed()
@@ -561,8 +562,15 @@ if (msg.content == '~tempochannel'){
 });
 
 bot.on('message', msg => {
-  if(msg.content === "DM"){
-msg.author.send('Hello'); //Sends a Direct Message
+  if(msg.content === "~link"){
+    var embed1 = new Discord.RichEmbed()
+        .setTitle(`Voici ton lien vers Aena !`)
+        .setDescription(`https://discord.gg/crWm7yg`)
+        .setThumbnail("https://cdn.discordapp.com/icons/468475819682168872/d4b8338a5f026b2b98d52d1287f78cd4.jpg?size=128")
+        .setImage('https://cdn.discordapp.com/attachments/474923379590168596/516294112375209999/Multi_Color_Bar.gif')
+        .setColor("RANDOM")
+        .setFooter("Æna ★")
+           msg.author.sendEmbed(embed1)
   }
 
 });
