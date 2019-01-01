@@ -99,7 +99,7 @@ bot.on('message', message => {//Démarrage
 bot.on('message', msg => {//INFO
 
     function help1() {
-    var embed = new Discord.RichEmbed()
+    var embedz = new Discord.RichEmbed()
      .setTitle("Liste des commandes :")
      .addField(" \n **~test : **", "Tester le bot.")
      .addField("**~embed : **", "Créer des Embed.")
@@ -113,12 +113,12 @@ bot.on('message', msg => {//INFO
      .setColor("#581845")
      .setAuthor("New Horizon")
      .setFooter("Page 1/2")
-        msg.channel.sendEmbed(embed).then(msg => {
+        msg.channel.sendEmbed(embedz).then(msg => {
           msg.react("👍");})
         };
 
     function helpp() {
-      msg.channel.bulkDelete(embed1);
+      msg.channel.bulkDelete(embedz);
               var embed1 = new Discord.RichEmbed()
               .setTitle("Liste des commandes :")
               .addField("**~createchannel : **", "Créer vos propres channels !")
@@ -145,7 +145,7 @@ bot.on('message', msg => {//INFO
                     };
                           
                 if (reaction.emoji.name === "👎" && user.id !== bot.user.id) {
-                  msg.channel.bulkDelete(embed);
+                  msg.channel.bulkDelete(embed1);
                     help1()
                            
                     }
