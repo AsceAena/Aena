@@ -139,24 +139,21 @@ bot.on('message', msg => {//INFO
 
               if(msg.content === "~help"){
                 help1()
-                bot.on('message', msg => {
-                  if (!msg.author.bot){
-              break
-                  }
-              })
-                bot.on('messageReactionAdd', (reaction, user) => {
-                  
-                  if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
-                    helpp()
-                   };
-                  
-                  if (reaction.emoji.name === "👎" && user.id !== bot.user.id) {
-                    msg.channel.bulkDelete(1);
-                    help1()
-                  };
-
-                    
-                  })};
+                 bot.on('message', msg => {
+                      if (!msg.author.bot){
+                  break
+                      }else{
+                        bot.on('messageReactionAdd', (reaction, user) => {
+                          if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
+                            helpp()
+                           };
+                          
+                          if (reaction.emoji.name === "👎" && user.id !== bot.user.id) {
+                            msg.channel.bulkDelete(1);
+                            help1()
+                           
+                              }
+                      })}})};
               
               
  
