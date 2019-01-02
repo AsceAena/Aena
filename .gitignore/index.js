@@ -256,12 +256,10 @@ bot.on('message', message => { //OTHERS
   };
        if(message.content.startsWith('~avatar')) {
         let user = message.mentions.users.first() || message.author;
-        let user2 = message.author
            let embed = new Discord.RichEmbed()
            .setDescription(`**Avatar de ${user}**`)
          .setImage(user.avatarURL)
          .setColor('RANDOM')
-         .setFooter(`Demandé par ${user2}`)
            message.channel.send(embed);
        };
 
@@ -310,7 +308,7 @@ message.channel.sendEmbed(embed)
 var randhug = 0
 
   function random(min, max){
-    min = Math.ceil(0);
+    min = Math.ceil(1);
     max = Math.floor(4);
     randhug = Math.floor(Math.random() * (max - min +1)+ min);
 }
