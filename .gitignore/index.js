@@ -102,7 +102,7 @@ bot.on('message', msg => {//INFO
  if(msg.content === "~help"){
   var embed1 = new Discord.RichEmbed()
   .setTitle("Liste des commandes :")
-  .addField(" \n **~test : **", "Tester le bot.")
+  .addField("**~test : **", "Tester le bot.")
   .addField("**~createchannel : **", "Créer vos propres channels !")
   .addField("**~sondage :**", "Faites voter vos idées !")
   .addField("**~link : **", "Un lien permanent du serveur vous sera envoyé !")
@@ -261,7 +261,7 @@ bot.on('message', message => { //OTHERS
        if(message.content.startsWith('~avatar')) {
         let user = message.mentions.users.first() || message.author;
            let embed = new Discord.RichEmbed()
-           .setTitle(`Avatar de <@${user}>`)
+           .setTitle(`Avatar de ${user}`)
          .setImage(user.avatarURL)
          .setColor('RANDOM')
            message.channel.send(embed);
@@ -574,14 +574,12 @@ bot.on('message', msg => {
         .setImage('https://cdn.discordapp.com/attachments/474923379590168596/516294112375209999/Multi_Color_Bar.gif')
         .setColor("RANDOM")
         .setFooter("Æna ★")
+        .setAuthor("New Horizon")
+        .setURL("https://open.spotify.com/playlist/0MRcFGCrX0gH6OGph0iH5G")
+        .setTimestamp(Date)
            msg.author.sendEmbed(embed1).then(msg =>{
              msg.reply("Mp envoyé !!")
            })
-
-    
-  }
+}
 
 });
-
-
-
