@@ -97,59 +97,30 @@ bot.on('message', message => {//Démarrage
 
 
 bot.on('message', msg => {//INFO
-
-    function help1() {
-    var embedz = new Discord.RichEmbed()
-     .setTitle("Liste des commandes :")
-     .addField(" \n **~test : **", "Tester le bot.")
-     .addField("**~embed : **", "Créer des Embed.")
-     .addField("**~avatar :**", "Afficher l'avatar de qui vous souhaitez.")
-     .addField("**~userinfo :**", "Affiche pleins d'information au sujet du membre souhaité !")
-     .addField("**~say :**", "Faites dire ce que vous souhaitez au bot !.")
-     .addField("**~ping :**", "Indication du temps de latence du serveur")
-     .addField("**~date :**", "Il vous sera indiqué la date actuelle !")
-     .addField("**~listfun :**", "Afficher la liste des commandes.. inutile")
-     .addField(" \n ***Bonne visite à Æna ★ !***", "**:D**")
-     .setColor("#581845")
-     .setAuthor("New Horizon")
-     .setFooter("Page 1/2")
-        msg.channel.sendEmbed(embedz).then(msg => {
-          msg.react("👍");
-  })
-
-          
-        };
-
-    function helpp() {
-              var embed1 = new Discord.RichEmbed()
-              .setTitle("Liste des commandes :")
-              .addField("**~createchannel : **", "Créer vos propres channels !")
-              .addField("**~sondage :**", "Faites voter vos idées !")
-              .addField("**~link : **", "Un lien permanent du serveur vous sera envoyé !")
-              .addField("**~modocmd**", "Affiche les commandes pour les modérateurs !")
-              .addField("**~infobot : **", "Afficher quelques renseignement à propos du bot")
-              .addField("**~infodiscord :**", "Infos à propos du serveur.")
-              .addField(" \n ***Bonne visite à Æna ★ !***", "**:D**")
-              .setColor("#581845")
-              .setAuthor("New Horizon")
-              .setFooter("Page 2/2")
-              msg.channel.sendEmbed(embed1).then(msg => {
-                msg.react("👎")          
-              })}
+                  
           
  if(msg.content === "~help"){
-    bot.on('message', msg => {
-      help1()
-      bot.on('messageReactionAdd', (reaction, user) => {
-        if (reaction.emoji.name === "👍" && user.id !== bot.user.id ) {
-          msg.channel.bulkDelete(1);
-            helpp()
-            };
-        if (reaction.emoji.name === "👎" && user.id !== bot.user.id ) {
-            msg.channel.bulkDelete(1);
-            help1() 
-          }})
-    })
+  var embed1 = new Discord.RichEmbed()
+  .setTitle("Liste des commandes :")
+  .addField(" \n **~test : **", "Tester le bot.")
+  .addField("**~createchannel : **", "Créer vos propres channels !")
+  .addField("**~sondage :**", "Faites voter vos idées !")
+  .addField("**~link : **", "Un lien permanent du serveur vous sera envoyé !")
+  .addField("**~modocmd**", "Affiche les commandes pour les modérateurs !")
+  .addField("**~infobot : **", "Afficher quelques renseignement à propos du bot")
+  .addField("**~infodiscord :**", "Infos à propos du serveur.")
+  .addField("**~embed : **", "Créer des Embed.")
+  .addField("**~avatar :**", "Afficher l'avatar de qui vous souhaitez.")
+ .addField("**~userinfo :**", "Affiche pleins d'information au sujet du membre souhaité !")
+ .addField("**~say :**", "Faites dire ce que vous souhaitez au bot !.")
+ .addField("**~ping :**", "Indication du temps de latence du serveur")
+  .addField("**~date :**", "Il vous sera indiqué la date actuelle !")
+  .addField("**~listfun :**", "Afficher la liste des commandes.. inutile")
+  .addField(" \n ***Bonne visite à Æna ★ !***", "**:D**")
+  .setColor("#581845")
+  .setAuthor("New Horizon")
+  .setFooter("Aena")
+  msg.channel.sendEmbed(embed1)        
   };     
               
  
