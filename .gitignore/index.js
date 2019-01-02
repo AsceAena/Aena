@@ -118,7 +118,7 @@ bot.on('message', msg => {//INFO
         };
 
     function helpp() {
-      msg.channel.bulkDelete(1);
+      msg.delete()
               var embed1 = new Discord.RichEmbed()
               .setTitle("Liste des commandes :")
               .addField("**~createchannel : **", "Créer vos propres channels !")
@@ -134,32 +134,20 @@ bot.on('message', msg => {//INFO
               msg.channel.sendEmbed(embed1).then(msg => {
                 msg.react("👎")
                 
-              });
-            }
-
-              if(msg.content === "~help"){
-                help1()
-            bot.on('messageReactionAdd', (reaction, user) => {
-                 if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
-                     helpp()
+              })}
+ if(msg.content === "~help"){
+    help1()
+    bot.on('messageReactionAdd', (reaction, user) => {
+    if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
+        helpp()
                     };
-                          
-                if (reaction.emoji.name === "👎" && user.id !== bot.user.id) {
-                  msg.channel.bulkDelete(1);
-                    help1()
-                           
-                    }
-});              
+    if (reaction.emoji.name === "👎" && user.id !== bot.user.id) {
+        msg.delete()
+        help1()
+      }})};     
               
  
-            
-          
-            
-     
-     
-      
-
-      if(msg.content === "~modocmd") { 
+if(msg.content === "~modocmd") { 
         var embed = new Discord.RichEmbed()
       .setTitle("Commande de modération")
       .addField("~clear <nombre>", "Effacer un nombre de message voulu")
@@ -256,7 +244,7 @@ if(msg.content === "~listfun") {
     if (msg.content === "--test") {
     msg.guild.channels.get("529300584784986115").setName(`Total Users: ${ma}`); 
     };
-}});
+});
 
 bot.on('message', message => { //Slice message
 
@@ -294,8 +282,9 @@ bot.on('message', message => { //OTHERS
        message.reply("Merci de mentionner un utilisateur valide avec la commande ``~avatar <Utilisateur>``")
     }else{
        if(message.content.startsWith('~avatar')) {
-        let user = msg.mentions.users.first() || msg.author;
+        let user = message.mentions.users.first() || message.author;
            let embed = new Discord.RichEmbed()
+           .setTitle(`Avatar de <@${user}>`)
          .setImage(user.avatarURL)
          .setColor('RANDOM')
            message.channel.send(embed);
