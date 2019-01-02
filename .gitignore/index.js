@@ -575,10 +575,8 @@ bot.on('message', msg => {
         .setColor("RANDOM")
         .setFooter("Æna ★")
         .setAuthor("New Horizon")
-        .setURL("https://open.spotify.com/playlist/0MRcFGCrX0gH6OGph0iH5G")
-        .setTimestamp(Date)
            msg.author.sendEmbed(embed1).then(msg =>{
-             msg.reply("Mp envoyé !!")
+             msg.channel.send("Mp envoyé !!")
            })
 }
 
