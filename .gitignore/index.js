@@ -136,11 +136,10 @@ bot.on('message', msg => {//INFO
               msg.channel.sendEmbed(embed1).then(msg => {
                 msg.react("👎")          
               })}
-
-            help1()
           
  if(msg.content === "~help"){
     bot.on('message', msg => {
+      help1()
       bot.on('messageReactionAdd', (reaction, user) => {
         if (reaction.emoji.name === "👍" && user.id == msg.author.id) {
           msg.channel.bulkDelete(1);
