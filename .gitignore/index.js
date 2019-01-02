@@ -256,10 +256,12 @@ bot.on('message', message => { //OTHERS
   };
        if(message.content.startsWith('~avatar')) {
         let user = message.mentions.users.first() || message.author;
+        let user2 = message.author
            let embed = new Discord.RichEmbed()
-           .setDescription(`Avatar de ${user}`)
+           .setDescription(`**Avatar de ${user}**`)
          .setImage(user.avatarURL)
          .setColor('RANDOM')
+         .setFooter(`Demandé par ${user2}`)
            message.channel.send(embed);
        };
 
