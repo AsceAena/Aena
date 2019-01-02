@@ -114,11 +114,13 @@ bot.on('message', msg => {//INFO
      .setAuthor("New Horizon")
      .setFooter("Page 1/2")
         msg.channel.sendEmbed(embedz).then(msg => {
-          msg.react("👍");})
+          msg.react("👍");
+  })
+
+          
         };
 
     function helpp() {
-      msg.delete(1)
               var embed1 = new Discord.RichEmbed()
               .setTitle("Liste des commandes :")
               .addField("**~createchannel : **", "Créer vos propres channels !")
@@ -132,19 +134,27 @@ bot.on('message', msg => {//INFO
               .setAuthor("New Horizon")
               .setFooter("Page 2/2")
               msg.channel.sendEmbed(embed1).then(msg => {
-                msg.react("👎")
-                
+                msg.react("👎")                
               })}
+
+              var hp2 = msg.channel.fetchMessage(embed1);
+              var hp1 = msg.channel.fetchMessage(embedz);
  if(msg.content === "~help"){
     help1()
     bot.on('messageReactionAdd', (reaction, user) => {
     if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
+      msg.channel.bulkDelete(hp2);
         helpp()
                     };
     if (reaction.emoji.name === "👎" && user.id !== bot.user.id) {
-        msg.delete(1)
+        msg.channel.bulkDelete(hp1);
         help1()
-      }})};     
+      }
+
+      
+    
+    })
+  };     
               
  
 if(msg.content === "~modocmd") { 
