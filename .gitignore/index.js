@@ -254,19 +254,17 @@ bot.on('message', message => { //OTHERS
   if(message.content === "~ping"){
     message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + 'ms`');
   };
-
-  if(message.content === "~avatar"){
-       message.reply("Merci de mentionner un utilisateur valide avec la commande ``~avatar <Utilisateur>``")
-    }else{
        if(message.content.startsWith('~avatar')) {
         let user = message.mentions.users.first() || message.author;
            let embed = new Discord.RichEmbed()
-           .setTitle(`Avatar de ${user}`)
+           .setDescription(`Avatar de ${user}`)
          .setImage(user.avatarURL)
          .setColor('RANDOM')
            message.channel.send(embed);
-         }};
-});
+       };
+
+        })
+
 
 bot.on('message', message => {//RANDOM
 var randnum = 0
