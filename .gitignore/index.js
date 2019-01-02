@@ -137,23 +137,20 @@ bot.on('message', msg => {//INFO
                 msg.react("👎")                
               })}
 
-              var hp2 = msg.channel.fetchMessage(embed1);
-              var hp1 = msg.channel.fetchMessage(embedz);
- if(msg.content === "~help"){
-    help1()
+          function help3() {
+            help1()
     bot.on('messageReactionAdd', (reaction, user) => {
     if (reaction.emoji.name === "👍" && user.id !== bot.user.id) {
-      msg.channel.bulkDelete(hp1);
+      msg.channel.bulkDelete(1);
         helpp()
                     };
     if (reaction.emoji.name === "👎" && user.id !== bot.user.id) {
-        msg.channel.bulkDelete(hp2);
+        msg.channel.bulkDelete(1);
         help1()
-      }
-
-      
-    
-    })
+      }})
+          }
+ if(msg.content === "~help"){
+    help3()
   };     
               
  
