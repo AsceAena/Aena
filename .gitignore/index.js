@@ -134,8 +134,7 @@ bot.on('message', msg => {//INFO
               .setAuthor("New Horizon")
               .setFooter("Page 2/2")
               msg.channel.sendEmbed(embed1).then(msg => {
-                msg.react("👎")
-                msg.channel.delete(+1)             
+                msg.react("👎")          
               })}
 
             help1()
