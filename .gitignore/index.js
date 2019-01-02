@@ -141,11 +141,11 @@ bot.on('message', msg => {//INFO
     bot.on('message', msg => {
       help1()
       bot.on('messageReactionAdd', (reaction, user) => {
-        if (reaction.emoji.name === "👍" && user.id !== bot.user.id && user.id == msg.author.id) {
+        if (reaction.emoji.name === "👍" && user.id !== bot.user.id ) {
           msg.channel.bulkDelete(1);
             helpp()
             };
-        if (reaction.emoji.name === "👎" && user.id !== bot.user.id && user.id == msg.author.id) {
+        if (reaction.emoji.name === "👎" && user.id !== bot.user.id ) {
             msg.channel.bulkDelete(1);
             help1() 
           }})
