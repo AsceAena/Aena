@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 var prefix = ("~")
 
 bot.on('ready', function() {
-    bot.user.setGame("Æna ★  ~help");
+    bot.user.setGame("Æna  ~help");
     console.log("Connectedç");
 });
 
